@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Us — The Wire Desk</title>
+<meta name="description" content="Locate the Wire Desk global newsroom headquarters and regional bureaus on Google Maps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="dot"></span> THE WIRE DESK</a>
+    <div class="header-right">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="findus.html">Find Us</a>
+      </nav>
+      <div class="header-clock">
+        <span data-clock="weekday-short"></span>
+        <span class="sep">·</span>
+        <span data-clock="date-short"></span>
+        <span class="sep">·</span>
+        <span class="hc-time" data-clock="time"></span>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+  <div class="ticker-bar">
+    <div class="ticker-label">● LIVE WIRE</div>
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</header>
+
+<div class="page-hero reveal">
+  <span class="eyebrow">Visit The Newsroom</span>
+  <h1>Find our headquarters and regional bureaus.</h1>
+  <p>Our main newsroom is open to credentialed visitors on weekdays. Tap the map or the directions button to route straight there from wherever you are.</p>
+</div>
+
+<section>
+  <div class="findus-grid">
+    <div class="reveal">
+      <div class="hq-card">
+        <div class="hq-badge"><span class="ping"></span> Headquarters — Open Now</div>
+        <div class="hq-name">The Wire Desk — Global Newsroom</div>
+        <div class="hq-addr">
+          148 Fleet Avenue<br>
+          New York, NY 10038<br>
+          United States
+        </div>
+        <div class="submit-row">
+          <a class="btn" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=148+Fleet+Avenue+New+York+NY+10038">
+             📍 Get Directions
+          </a>
+          <a class="btn outline" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/search/?api=1&query=148+Fleet+Avenue+New+York+NY+10038">
+             Open in Google Maps
+          </a>
+        </div>
+      </div>
+
+      <div class="bureaus">
+        <div class="bureau-item">
+          <div>
+            <div class="bname">London Bureau</div>
+            <div class="baddr">22 Fetter Court, London EC4A</div>
+          </div>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=22+Fetter+Court+London+EC4A">View on map →</a>
+        </div>
+        <div class="bureau-item">
+          <div>
+            <div class="bname">Singapore Bureau</div>
+            <div class="baddr">9 Raffles Quay, Singapore 048583</div>
+          </div>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=9+Raffles+Quay+Singapore+048583">View on map →</a>
+        </div>
+        <div class="bureau-item">
+          <div>
+            <div class="bname">Nairobi Bureau</div>
+            <div class="baddr">4 Kimathi Street, Nairobi</div>
+          </div>
+          <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=4+Kimathi+Street+Nairobi">View on map →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <iframe class="map-embed"
+        src="https://www.google.com/maps?q=148+Fleet+Avenue+New+York+NY+10038&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map showing The Wire Desk headquarters location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© <span data-clock="year"></span> The Wire Desk — Independent daily wire.</span>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="script.js"></script>
+<script>
+const TICKER_ITEMS = [
+  'Central banks signal coordinated pause on rates',
+  'Rookie sprinter breaks 14-year national record',
+  'Coastal cities fast-track flood-barrier upgrades',
+  'Open-source chip toolkit passes one million downloads',
+  'Cross-border rail link clears final hurdle',
+  'Independent bookshops see quiet resurgence'
+];
+window.WireDesk.initTicker(TICKER_ITEMS);
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Wire Desk — Live News Wire</title>
+<meta name="description" content="Independent daily news wire — latest headlines across World, Business, Tech, Sport, Culture and Science.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="dot"></span> THE WIRE DESK</a>
+    <div class="header-right">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="findus.html">Find Us</a>
+      </nav>
+      <div class="header-clock">
+        <span data-clock="weekday-short"></span>
+        <span class="sep">·</span>
+        <span data-clock="date-short"></span>
+        <span class="sep">·</span>
+        <span class="hc-time" data-clock="time"></span>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+  <div class="ticker-bar">
+    <div class="ticker-label">● LIVE WIRE</div>
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</header>
+
+<div class="hero-wrap">
+  <div class="hero-grid">
+    <div class="hero-lead reveal">
+      <span class="eyebrow">Top Story · World Desk</span>
+      <h1>Central banks signal coordinated pause as inflation cools faster than forecast</h1>
+      <p>Policymakers across three continents hinted at holding rates steady through the next cycle, pointing to easing price pressure and steadier supply chains as the reasons behind the shift in tone.</p>
+      <div class="byline">
+        <span class="stamp-dot">●</span>
+        <span>By the Economics Desk</span>
+        <span>—</span>
+        <span data-clock="updated"></span>
+      </div>
+      <div style="margin-top:28px;">
+        <div class="dateline-stamp">
+          <div class="row1">Dateline</div>
+          <div class="day" data-clock="weekday-full"></div>
+          <div class="full-date" data-clock="date-full"></div>
+          <div class="time"><span data-clock="time"></span> local</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-stories">
+      <div class="side-story reveal">
+        <span class="tag tech">Tech</span>
+        <h3>Regional grid operators trial AI-driven load balancing ahead of peak summer demand</h3>
+        <p>Early results show a measurable drop in localized outages during stress-testing.</p>
+      </div>
+      <div class="side-story reveal">
+        <span class="tag sport">Sport</span>
+        <h3>Underdog club secures continental final berth after extra-time thriller</h3>
+        <p>A stoppage-time equalizer forced extra time, where two late strikes sealed the upset.</p>
+      </div>
+      <div class="side-story reveal">
+        <span class="tag culture">Culture</span>
+        <h3>City archive digitizes a century of street photography for public access</h3>
+        <p>The collection, previously viewable only by appointment, goes fully online this week.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="news">
+  <div class="section-head reveal">
+    <h2>Latest News</h2>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="world">World</button>
+      <button class="filter-btn" data-filter="business">Business</button>
+      <button class="filter-btn" data-filter="tech">Tech</button>
+      <button class="filter-btn" data-filter="sport">Sport</button>
+      <button class="filter-btn" data-filter="culture">Culture</button>
+      <button class="filter-btn" data-filter="science">Science</button>
+    </div>
+  </div>
+  <div class="news-grid" id="newsGrid"></div>
+</section>
+
+<footer>
+  <span>© <span data-clock="year"></span> The Wire Desk — Independent daily wire.</span>
+  <nav>
+    <a href="contact.html">Contact Us</a>
+    <a href="findus.html">Find Us</a>
+  </nav>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="script.js"></script>
+<script>
+const NEWS = [
+  {cat:'world', tag:'World', title:'Coastal cities accelerate flood-barrier plans after record tide season', excerpt:'Engineers are fast-tracking barrier upgrades in six port cities following the wettest season on record.', time:'12m ago', author:'World Desk'},
+  {cat:'business', tag:'Business', title:'Retailers report stronger-than-expected footfall heading into the season', excerpt:'In-store visits rose for a third straight month, reversing two years of steady decline.', time:'38m ago', author:'Markets Desk'},
+  {cat:'tech', tag:'Tech', title:'Open-source chip design toolkit hits one million downloads', excerpt:'The community-built toolchain is now used in university labs across four continents.', time:'1h ago', author:'Tech Desk'},
+  {cat:'sport', tag:'Sport', title:'Rookie sprinter breaks a 14-year-old national record', excerpt:'The 19-year-old shaved 0.11 seconds off a mark that had stood since 2012.', time:'2h ago', author:'Sport Desk'},
+  {cat:'culture', tag:'Culture', title:'Independent bookshops see a quiet resurgence in small towns', excerpt:'A wave of new openings is bucking a decade-long trend of closures.', time:'3h ago', author:'Culture Desk'},
+  {cat:'science', tag:'Science', title:'Marine biologists log a rare deep-sea species off the continental shelf', excerpt:'The specimen was recorded on a routine survey dive at 900 metres.', time:'4h ago', author:'Science Desk'},
+  {cat:'world', tag:'World', title:'Cross-border rail link clears final regulatory hurdle', excerpt:'Construction is expected to begin early next year after a decade of planning.', time:'5h ago', author:'World Desk'},
+  {cat:'business', tag:'Business', title:'Small manufacturers pivot to regional supply chains', excerpt:'Firms cite shipping costs and lead times as the main drivers behind the shift.', time:'6h ago', author:'Markets Desk'},
+  {cat:'tech', tag:'Tech', title:'City library network rolls out free public device-repair workshops', excerpt:'The pilot programme aims to cut e-waste and extend device lifespans.', time:'7h ago', author:'Tech Desk'},
+];
+
+const TICKER_ITEMS = [
+  'Central banks signal coordinated pause on rates',
+  'Rookie sprinter breaks 14-year national record',
+  'Coastal cities fast-track flood-barrier upgrades',
+  'Open-source chip toolkit passes one million downloads',
+  'Cross-border rail link clears final hurdle',
+  'Independent bookshops see quiet resurgence'
+];
+
+function renderNews(){
+  const grid = document.getElementById('newsGrid');
+  grid.innerHTML = NEWS.map((item,i)=>`
+    <article class="news-card reveal" data-cat="${item.cat}" style="transition-delay:${(i%3)*0.08}s">
+      <span class="arrow">→</span>
+      <span class="tag ${item.cat}">${item.tag}</span>
+      <h3>${item.title}</h3>
+      <p>${item.excerpt}</p>
+      <div class="news-meta"><span>${item.author}</span><span>${item.time}</span></div>
+    </article>
+  `).join('');
+  window.WireDesk.observeReveals();
+}
+renderNews();
+window.WireDesk.initTicker(TICKER_ITEMS);
+
+document.getElementById('filters').addEventListener('click', (e)=>{
+  const btn = e.target.closest('.filter-btn');
+  if(!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f = btn.dataset.filter;
+  document.querySelectorAll('.news-card').forEach(card=>{
+    card.classList.toggle('hidden', f!=='all' && card.dataset.cat!==f);
+  });
+});
+</script>
+</body>
+</html>
